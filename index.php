@@ -17,6 +17,7 @@ $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
+
 $headers = array(
     "Authorization: Bearer 2Bsvp9toxwuGHwk3lkyNJYZRugE_27CncnazyBQBXs7LacBAz",
     "Ngrok-Version: 2",

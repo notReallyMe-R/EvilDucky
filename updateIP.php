@@ -58,6 +58,7 @@ foreach ($data['tunnels'] as $tunnel) {
             }
             else{
                 // adds user to database
+                echo "poopypants";
                 $sql = "INSERT INTO victim VALUES(NULL,'".$session['metadata']."', '".splitPortIP($tunnel['public_url'])[0]."', ".splitPortIP($tunnel['public_url'])[1].")";
                 $result = $conn->query($sql);
 
