@@ -44,7 +44,7 @@ curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 $resp = curl_exec($curl);
 
 $dataTwo = json_decode($resp, true);
-echo "<select id='select_ip' name='ip_add'>";
+echo "<select id='userName' name='userName'>";
 echo "<option value='' selected='selected'>Choose Device</option>";
 
 //checks database
@@ -69,7 +69,7 @@ foreach ($data['tunnels'] as $tunnel){
     //echo $tunnel['tunnel_session']['id']; //id for tunnel session
     foreach ($dataTwo['tunnel_sessions'] as $session){
         if ($session['id'] == $tunnel['tunnel_session']['id']){
-            echo "<option value='".$tunnel['public_url']."'>".$session['metadata'].", ".$tunnel['public_url']."</option>"; //gets the metadata that goes with the url
+            echo "<option value='".$session['metadata']."'>".$session['metadata']."</option>"; //gets the metadata that goes with the url
 
 
         }
