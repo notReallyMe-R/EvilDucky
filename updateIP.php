@@ -5,15 +5,17 @@ function splitPortIP($fullAddress){
     $return_array = array($address_array[0].$address_array[1],$address_array[2]);
     return $return_array;
 }
-//gets the Ip for a session
+// gets the Ip for a session
 $url = "https://api.ngrok.com/tunnels";
+// api key for ngrok - should have hidden from GitHub
+$apiKey = "2Bsvp9toxwuGHwk3lkyNJYZRugE_27CncnazyBQBXs7LacBAz";
 
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $headers = array(
-    "Authorization: Bearer 2Bsvp9toxwuGHwk3lkyNJYZRugE_27CncnazyBQBXs7LacBAz",
+    "Authorization: Bearer ".$apiKey,
     "Ngrok-Version: 2",
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -24,7 +26,7 @@ curl_close($curl);
 
 $data = json_decode($resp, true);
 
-//gets the Metadata (user name strored)
+//gets the Metadata (username stored)
 $url = "https://api.ngrok.com/tunnel_sessions";
 
 $curl = curl_init($url);
@@ -32,7 +34,7 @@ curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
 $headers = array(
-    "Authorization: Bearer 2Bsvp9toxwuGHwk3lkyNJYZRugE_27CncnazyBQBXs7LacBAz",
+    "Authorization: Bearer ".$apiKey,
     "Ngrok-Version: 2",
 );
 curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);

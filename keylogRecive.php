@@ -8,6 +8,7 @@ if ($_POST){
 
     $conn->close();
 }
-var_dump($_POST);
+flush();
+exit();
 ?>
 </html>
