@@ -2,7 +2,8 @@
 require 'connect.php';
 function splitPortIP($fullAddress){
     $address_array = explode(":", $fullAddress);
-    $return_array = array($address_array[0].$address_array[1],$address_array[2]);
+    $ip = trim($address_array[1], '/');
+    $return_array = array($ip,$address_array[2]);
     return $return_array;
 }
 // gets the Ip for a session

